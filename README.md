@@ -62,7 +62,7 @@
 - belongs_to :purchase
 
 
-## purchaseテーブル
+## purchasesテーブル
 
 | Column  | Type       | Options     |
 | ------- | ---------- | ----------- |
