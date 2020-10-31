@@ -11,9 +11,7 @@
 | first_name_china   | string | null: false |
 | family_name_kana   | string | null: false |
 | first_name_kana    | string | null: false |
-| birthday_year      | string | null: false |
-| birthday_month     | string | null: false |
-| birthday_day       | string | null: false |
+| birthday           | date   | null: false |
 
 
 <!-- devise導入により、emailとpasswordはカラム名に入れていません -->
