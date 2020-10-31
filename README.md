@@ -18,8 +18,8 @@
 
 ### Association
 
-- has_many : items
-- has_many : purchases
+- has_many :items
+- has_many :purchases
 
 
 ## items テーブル
@@ -59,7 +59,7 @@
 
 ### Association
 
-- belongs_to : purchase
+- belongs_to :purchase
 
 
 ## purchaseテーブル
