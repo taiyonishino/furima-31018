@@ -5,19 +5,6 @@ describe User do
   end
 
   describe 'ユーザー新規登録' do
-    context '新規登録がうまくいくとき' do
-      it "nicknameが6文字以下で登録できる" do
-        @user.nickname = "aaaaaa"
-        expect(@user).to be_valid
-      end
-
-      it "passwordが6文字以上であれば登録できる" do
-        @user.password = "000000"
-        @user.password_confirmation = "000000"
-        expect(@user).to be_valid
-      end
-    end
-
     context '新規登録がうまくいかないとき' do
       it "nicknameが空だと登録できない" do
         @user.nickname = ''
@@ -109,14 +96,26 @@ describe User do
       it "生年月日が空では登録できない" do
       @user.birthday = ''
       @user.valid?
-
       expect(@user.errors.full_messages).to include("Birthday can't be blank")
       end
 
-      it '半角英数混合(半角英語のみでないと登録できない)' do
+      it 'パスワードが半角英語のみでは登録できない)' do
         @user.password = 'aaaaaaa'
         @user.valid?
         expect(@user.errors.full_messages).to include("Password confirmation doesn't match Password")
+      end
+
+      it 'パスワードが数字のみでは登録ができない' do
+        @user.password = '1111111'
+        @user.valid?
+        expect(@user.errors.full_messages).to include("Password confirmation doesn't match Password")
+      end
+
+      it "emailに＠が含まれていない場合に登録ができない" do
+        @user.email = 'aaaaaaaaa'
+        @user.valid?
+        binding.pry
+        expect(@user.errors.full_messages).to include("Email is invalid")
       end
     end
   end
