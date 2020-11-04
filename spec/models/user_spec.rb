@@ -5,6 +5,15 @@ describe User do
   end
 
   describe 'ユーザー新規登録' do
+    context '新規登録がうまくいくとき' do
+      it 'passwordが6文字以上(半角英数字混合)であれば登録できる' do
+        @user.password = "aaa000"
+        @user.password_confirmation = "aaa000"
+        expect(@user).to be_valid
+      end
+    end
+
+
     context '新規登録がうまくいかないとき' do
       it "nicknameが空だと登録できない" do
         @user.nickname = ''
@@ -114,7 +123,6 @@ describe User do
       it "emailに＠が含まれていない場合に登録ができない" do
         @user.email = 'aaaaaaaaa'
         @user.valid?
-        binding.pry
         expect(@user.errors.full_messages).to include("Email is invalid")
       end
     end
