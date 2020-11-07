@@ -34,7 +34,8 @@
 |prefecture_id| integer    | null: false |
 | days_id     | integer    | null: false |
 | price       | integer    | null: false |
-| user       | references | null: false, foreign_key: true |
+| user       | references | null: false
+foreign_key:true |
 
 <!-- アクティブハッシュを使わないといけない -->
 <!-- 選択肢のあるカラムの型はintegerと示す -->
