@@ -1,15 +1,15 @@
 class Item < ApplicationRecord
   validates :name          , presence: true
-  # validates :image         , presence: true
   validates :explanation   , presence: true
   validates :explanation   , length: { maximum: 40 }
 
-  validates :category_id   , numericality: { other_than: 0 }
-  validates :status_id     , numericality: { other_than: 0 }
-  validates :burden_id     , numericality: { other_than: 0 }
-  validates :prefecture_id , numericality: { other_than: 0 }
-  validates :days_id       , numericality: { other_than: 0 }
-
+  with_options presence: true ,numericality: { other_than: 0 } do
+   validates :category_id   
+   validates :status_id     
+   validates :burden_id     
+   validates :prefecture_id 
+   validates :days_id       
+  end
 
     validates :prace         , presence: true
     validates :prace         , numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999, message: "is out of setting range"}

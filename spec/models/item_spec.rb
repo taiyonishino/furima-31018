@@ -62,6 +62,12 @@ describe Item do
         expect(@item.errors.full_messages).to include("Days must be other than 0")
       end
 
+      it "商品価格が空の時出品できない" do
+        @item.prace = ''
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Prace can't be blank")
+      end
+
       it "価格が300円以下の時出品できない" do
         @item.prace = 30
         @item.valid?
@@ -79,6 +85,7 @@ describe Item do
         @item.valid?
         expect(@item.errors.full_messages).to include("Prace is out of setting range")
       end
+
     end
   end    
 end
