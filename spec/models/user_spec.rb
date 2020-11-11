@@ -7,8 +7,8 @@ describe User do
   describe 'ユーザー新規登録' do
     context '新規登録がうまくいくとき' do
       it 'passwordが6文字以上(半角英数字混合)であれば登録できる' do
-        @user.password = ""
-        @user.password_confirmation = ""
+        @user.password = "aaa111"
+        @user.password_confirmation = "aaa111"
         expect(@user).to be_valid
       end
     end

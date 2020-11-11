@@ -17,7 +17,6 @@
       <%= link_to image_tag("dl-android.png", class:"google-btn"), "#" %>
     </div>
   </div>
-  <%# /画面上部の「人生を変えるフリマアプリ」帯部分  %>
 
   <%# FURIMAが選ばれる3つの理由部分 %>
   <div class='select-reason-contents'>
@@ -60,7 +59,6 @@
       </li>
     </ul>
   </div>
-  <%# /FURIMAが選ばれる3つの理由部分 %>
 
   <%# 画面中央の「会員数日本一位」帯部分 %>
   <div class='ad-contents'>
@@ -182,8 +180,8 @@
 </div>
 <div class='purchase-btn'>
   <span class='purchase-btn-text'>出品する</span>
-  <a href="#">
+   <%= link_to new_item_path do %>
     <%= image_tag 'camera.png' , size: '185x50' ,class: "purchase-btn-icon" %>
-  </a>
+  <% end %>
 </div>
 <%= render "shared/footer" %>
