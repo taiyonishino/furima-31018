@@ -8,10 +8,10 @@ class PurchacesUser
     validates :municipality
     validates :address    
     validates :phone_number, format: {with: /\A^0\d{9,10}$\z/, message: "11桁以上だと保存できません"}
+    validates :token, presence: true
   end
   validates :prefecture_id, numericality: { other_than: 0 }
-  validates :token, presence: true
-  
+
   def save
     purchace = Purchace.create(user_id: user_id ,item_id: item_id)
     Address.create(postal_code: postal_code, prefecture_id: prefecture_id, municipality: municipality, address: address, building_name: building_name, phone_number: phone_number, purchace_id: purchace.id)
