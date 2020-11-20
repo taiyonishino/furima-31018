@@ -15,6 +15,7 @@ class Item < ApplicationRecord
     validates :prace         , numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999, message: "is out of setting range"}
 
   belongs_to :user
+  has_one :purchace
   has_one_attached :image
 
   validates :image, presence: true, unless: :was_attached?
