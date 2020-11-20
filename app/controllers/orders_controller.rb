@@ -1,5 +1,6 @@
 class OrdersController < ApplicationController
   before_action :authenticate_user!, only: :index
+  before_action :set_item ,only: [:index, :create]
   
   def index
     @item = Item.find(params[:item_id])
@@ -38,5 +39,8 @@ class OrdersController < ApplicationController
     )
   end
 
+  def set_item
+    @item = Item.find(params[:item_id])
+  end
 
 end
